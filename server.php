@@ -48,6 +48,17 @@ class MyWs{
 		return 'selamat Anda telah terdaftar: '.$nama.' dan jml sks='.$sks;
 	}
 	
+	function CekDetailBarang($param){
+	$a = $param->NamaBarang;
+	$b = $param->NamaVendor;
+	
+	$output->NamaBarang = 'Laptop';
+	$output->NamaVendor = 'ASUS';
+	$output->qty = 1;
+	$output->HargaSatuan = 3000000;
+	
+	return $output;
+	}
 }
 	
 //ini_set("soap.wsdl_cache_enabled", 0);
