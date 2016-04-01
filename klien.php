@@ -1,7 +1,9 @@
 <?php
 
-$wsdl="http://localhost/latihan/ws0?wsdl";
+$wsdl="http://localhost:8080/latihan/ws0?wsdl";
 $client2 = new SoapClient ( $wsdl, array('cache_wsdl' => WSDL_CACHE_NONE, 'trace'=>1) );
+
+
 
 
 //var_dump($client2->__getFunctions());
@@ -44,6 +46,20 @@ $data=array('nama'=>'Iwan','npm'=>'45676','sks'=>9);
 echo '<p>';
 echo $client2->setMhs($data);
 echo '</p>';
+
+//eksekusi service CekDetailBarang
+$param = array('NamaBarang'=>'Laptop','NamaVendor'=>'ASUS');
+$client2->CekDetailBarang($param);
+echo '<p>';
+echo ' Nama Barang = '. $client2->CekDetailBarang()->NamaBarang;
+echo '</br>';
+echo ' Nama Vendor = '. $client2->CekDetailBarang()->NamaVendor;
+echo '</br>';
+echo ' QTY = '. $client2->CekDetailBarang()->qty;
+echo '</br>';
+echo ' Harga = '. $client2->CekDetailBarang()->HargaSatuan;
+echo '</p>';
+
 
 //echo '<br>'.'--------------------'.'<br>';
 //var_dump($client2->__getLastResponse());
